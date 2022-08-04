@@ -1,0 +1,27 @@
+{
+  "name": "it-dumptruck-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "deploy": "serverless deploy",
+    "dev": "serverless invoke local --function ",
+    "invoke": "serverless invoke --function "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/it-dumptruck/it-dumptruck-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/it-dumptruck/it-dumptruck-server/issues"
+  },
+  "homepage": "https://github.com/it-dumptruck/it-dumptruck-server#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1188.0"
+  }
+}
