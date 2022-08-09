@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/it-dumptruck/it-dumptruck-server#readme",
   "dependencies": {
-    "aws-sdk": "^2.1188.0"
+    "aws-sdk": "^2.1188.0",
+    "jsonwebtoken": "^8.5.1"
   }
 }

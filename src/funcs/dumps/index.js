@@ -1,6 +1,5 @@
 'use strict';
 
-const { DynamoDB } = require("aws-sdk")
 const res = require("../../utils/res")
 const dumpList = require("../../models/dumps")
 

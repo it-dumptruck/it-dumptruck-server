@@ -1,18 +1,18 @@
 'use strict';
 
-const { DynamoDB } = require("aws-sdk")
-const { res, config, createUID } = require("../utils")
+const jwt = require('jsonwebtoken');
 
-const db = new DynamoDB.DocumentClient()
-const TableName = process.env.tableName
+const res = require("../../utils/res")
+const config = require("../../models/configs")
+const createUID = require("../../services/auth/createUID")
 
 module.exports.index = async (event) => {
-    let uid = event.headers?.host
     let AESKey = await config('secret')
+    let uid = await createUID(event.headers?.uid)
+    let token = jwt.sign({ uid }, AESKey, { expiresIn: '1h' });
 
-
-    //console.log(AESKey)
-    //console.log(createUID())
-
-    return res(200, null);
+    return res(200, {
+        uid,
+        token
+    });
 };

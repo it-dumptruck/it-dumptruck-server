@@ -23,18 +23,16 @@ module.exports = async (uid = null) => {
 
     while (true) {
         uid = create();
-
-        console.log(uid)
     
-        /*let duplicateCheck = (await db.query({
+        let duplicateCheck = (await db.query({
             TableName,
-            Limit: 1,
-            Key: {
-                id: '#config'
-            }
-        }).promise())*/
-    
-        if (Object.keys(duplicateCheck).length === 0) break;
+            ExpressionAttributeValues: {
+              ':id' : '#users#' + uid
+            },
+            KeyConditionExpression: 'id = :id',
+        }).promise()).Count
+
+        if (duplicateCheck === 0) break;
     }
 
     return uid;

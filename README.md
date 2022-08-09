@@ -1,6 +1,6 @@
 # IT dumptruck API Server
 
-## GET /auth (미완성)
+## GET /auth
 JWT 토큰 발급 요청
 
 ### parameter
@@ -17,8 +17,6 @@ JWT 토큰 발급 요청
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ" //발급된 JWT 토큰
 }
 ```
-#### status code : 401
-공개 토큰이 잘못된 경우 (메인으로 리다이렉션 권장)
 
 ## GET /dumps (미완성)
 덤프 리스트 조회
