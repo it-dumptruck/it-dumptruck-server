@@ -3,7 +3,7 @@
 const { DynamoDB } = require("aws-sdk")
 
 const db = new DynamoDB.DocumentClient()
-const TableName = process.env.configsTable
+const TableName = process.env.tableName
 
 module.exports = async (key) => {
     let result = null;
@@ -12,7 +12,8 @@ module.exports = async (key) => {
         result = (await db.get({
             TableName,
             Key: {
-                key
+                id: '#config',
+                sid: '#config#' + key
             }
         }).promise()).Item.value;
     } catch (e) {

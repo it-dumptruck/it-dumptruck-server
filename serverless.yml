@@ -19,19 +19,24 @@ provider:
             - dynamodb:DeleteItem
           Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:service}-*"
   environment:
-    usersTable: dumptruck-${self:provider.stage}-users
-    configsTable: dumptruck-${self:provider.stage}-configs
+    tableName: dumptruck-${self:provider.stage}
 
 
 functions:
   index:
-    handler: src.index
+    handler: src/funcs.index
     events:
       - httpApi:
           path: /
           method: get
+  auth:
+    handler: src/funcs/auth.index
+    events:
+      - httpApi:
+          path: /auth
+          method: get
   dumpList:
-    handler: src/dumps.list
+    handler: src/funcs/dumps.list
     events:
       - httpApi:
           path: /dumps
@@ -39,27 +44,20 @@ functions:
 
 resources:
   Resources:
-    usersTable:
+    tableName:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${self:provider.environment.usersTable}
+        TableName: ${self:provider.environment.tableName}
         AttributeDefinitions:
           - AttributeName: id
+            AttributeType: S
+          - AttributeName: sid
             AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
-    configsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:provider.environment.configsTable}
-        AttributeDefinitions:
-          - AttributeName: key
-            AttributeType: S
-        KeySchema:
-          - AttributeName: key
-            KeyType: HASH
+          - AttributeName: sid
+            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
     PublicBucket:
       Type: AWS::S3::Bucket

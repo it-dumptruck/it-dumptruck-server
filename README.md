@@ -1,6 +1,6 @@
 # IT dumptruck API Server
 
-## GET /auth
+## GET /auth (미완성)
 JWT 토큰 발급 요청
 
 ### parameter
@@ -13,14 +13,14 @@ JWT 토큰 발급 요청
 #### status code : 200
 ```
 {
-    "uid": "23jfviox3",
+    "uid": "23jfviox3", //uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ" //발급된 JWT 토큰
 }
 ```
 #### status code : 401
 공개 토큰이 잘못된 경우 (메인으로 리다이렉션 권장)
 
-## GET /dumps
+## GET /dumps (미완성)
 덤프 리스트 조회
 
 ### parameter
@@ -52,7 +52,7 @@ JWT 토큰 발급 요청
 #### status code : 401
 JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
 
-## GET /dumps/{dump_id}/{question_token}
+## GET /dumps/{dump_id}/{question_token} (미완성)
 개별 문제 조회
 
 ### parameter
@@ -74,6 +74,7 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
     “next_id": "eaca2046207dc8f58b4941552d0932b86ff03d5e", //다음 문제의 question_token (없을경우 null)
     “prev_id": "eaca2046207dc8f58b4941552d0932b86ff03d5e", //이전 문제의 question_token (없을경우 null)
     “description": “해설(없을수도있음 없으면 null)",
+    "marked": true, //마킹 여부
 }
 ```
 #### status code : 401
@@ -83,7 +84,7 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 존재하지 않는 덤프 아이디인 경우
 question_token이 잘못된 경우
 
-## GET /marks/{dump_id}
+## GET /marks/{dump_id} (미완성)
 마킹한 문제 리스트 조회
 
 ### parameter
@@ -110,8 +111,8 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 #### status code : 404
 존재하지 않는 덤프 아이디인 경우
 
-## POST /marks/{dump_id}/{question_token}
-문제 조회
+## POST /marks/{dump_id}/{question_token} (미완성)
+마킹(별표처리)
 
 ### parameter
 * dump_id : 덤프 아이디

@@ -1,0 +1,48 @@
+{
+    "version":"2.0",
+    "routeKey":"GET /auth",
+    "rawPath":"/auth",
+    "rawQueryString":"",
+    "headers":{
+       "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+       "accept-encoding":"gzip, deflate, br",
+       "accept-language":"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+       "cache-control":"no-cache",
+       "content-length":"0",
+       "host":"f5ih972vs1.execute-api.ap-northeast-2.amazonaws.com",
+       "pragma":"no-cache",
+       "sec-ch-ua":"\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+       "sec-ch-ua-mobile":"?0",
+       "sec-ch-ua-platform":"\"Windows\"",
+       "sec-fetch-dest":"document",
+       "sec-fetch-mode":"navigate",
+       "sec-fetch-site":"none",
+       "sec-fetch-user":"?1",
+       "upgrade-insecure-requests":"1",
+       "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+       "x-amzn-trace-id":"Root=1-62f242b6-5dfda38f1152bd93233b652a",
+       "x-forwarded-for":"175.192.215.157",
+       "x-forwarded-port":"443",
+       "x-forwarded-proto":"https",
+       "uid": "vj23ivjox"
+    },
+    "requestContext":{
+       "accountId":"914344256918",
+       "apiId":"f5ih972vs1",
+       "domainName":"f5ih972vs1.execute-api.ap-northeast-2.amazonaws.com",
+       "domainPrefix":"f5ih972vs1",
+       "http":{
+          "method":"GET",
+          "path":"/auth",
+          "protocol":"HTTP/1.1",
+          "sourceIp":"175.192.215.157",
+          "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+       },
+       "requestId":"Wl9cgjvkoE0EJlA=",
+       "routeKey":"GET /auth",
+       "stage":"$default",
+       "time":"09/Aug/2022:11:19:18 +0000",
+       "timeEpoch":1660043958242
+    },
+    "isBase64Encoded":false
+ }
