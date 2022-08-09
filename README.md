@@ -18,7 +18,7 @@ JWT 토큰 발급 요청
 }
 ```
 
-## GET /dumps (미완성)
+## GET /dumps
 덤프 리스트 조회
 
 ### parameter
