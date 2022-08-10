@@ -24,7 +24,6 @@
        "x-forwarded-for":"175.192.215.157",
        "x-forwarded-port":"443",
        "x-forwarded-proto":"https",
-       "uid": "i7ISwhmW65",
        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJpN0lTd2htVzY1IiwiaWF0IjoxNjYwMTQyNzE2LCJleHAiOjE2NjAxNDYzMTZ9.UYQZePfjZIJ7zl-wdlmxhE1PP2LJijId1ItrWDBKgmU",
        "type": "random"
     },
@@ -48,7 +47,7 @@
     },
     "pathParameters":{
        "dump_id":"amazon-saa-c02",
-       "question_token":"91"
+       "question_token":"51"
     },
     "isBase64Encoded":false
  }

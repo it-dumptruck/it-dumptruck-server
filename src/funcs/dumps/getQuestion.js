@@ -20,11 +20,12 @@ module.exports = async (event) => {
     let prev_id = questionToken > 1 ? questionToken - 1 : null
     let next_id = questionToken < dumpData.totalCount ? questionToken + 1 : null
 
+    let markedList = await getMarkedQuestion(uid, dumpId)
+
     if (type === 'random') {
         prev_id = null
         next_id = Math.floor(Math.random() * dumpData.totalCount) + 1
     } else if (type === 'marked') {
-        let markedList = await getMarkedQuestion(uid, dumpId)
         markedList.sort();
         let idx = markedList.indexOf(questionToken)
 
@@ -39,7 +40,7 @@ module.exports = async (event) => {
         id: questionToken,
         prev_id,
         next_id,
-        marked: true,
+        marked: markedList.indexOf(questionToken) >= 0,
         ...dumpData.question
     }
 

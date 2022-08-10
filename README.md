@@ -53,7 +53,7 @@ JWT 토큰 발급 요청
 #### status code : 401
 JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
 
-## GET /dumps/{dump_id}/{question_token} (미완성)
+## GET /dumps/{dump_id}/{question_token}
 개별 문제 조회
 
 ### parameter

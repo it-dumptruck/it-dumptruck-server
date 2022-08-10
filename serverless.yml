@@ -21,7 +21,7 @@ provider:
         - Effect: Allow
           Action:
             - s3:GetObject
-          Resource: "arn:aws:s3:::*:${self:service}-*"
+          Resource: "arn:aws:s3:::${self:service}-*/*"
   environment:
     tableName: ${self:service}-${self:provider.stage}
     bucketName: ${self:service}-assets-${self:provider.stage}
