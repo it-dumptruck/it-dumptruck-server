@@ -24,8 +24,9 @@
        "x-forwarded-for":"175.192.215.157",
        "x-forwarded-port":"443",
        "x-forwarded-proto":"https",
-       "uid": "e3rRPF4SpK",
-       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJlM3JSUEY0U3BLIiwiaWF0IjoxNjYwMDU2MTA4LCJleHAiOjE2NjAwNTk3MDh9.mc-sSOWQtSRimZ885aGjpp9lfWUgNRJ0WLWcOVSimzc"
+       "uid": "i7ISwhmW65",
+       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJpN0lTd2htVzY1IiwiaWF0IjoxNjYwMTQyNzE2LCJleHAiOjE2NjAxNDYzMTZ9.UYQZePfjZIJ7zl-wdlmxhE1PP2LJijId1ItrWDBKgmU",
+       "type": "random"
     },
     "requestContext":{
        "accountId":"914344256918",
@@ -44,6 +45,10 @@
        "stage":"$default",
        "time":"09/Aug/2022:11:19:18 +0000",
        "timeEpoch":1660043958242
+    },
+    "pathParameters":{
+       "dump_id":"amazon-saa-c02",
+       "question_token":"91"
     },
     "isBase64Encoded":false
  }

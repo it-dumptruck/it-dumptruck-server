@@ -18,8 +18,13 @@ provider:
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
           Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:service}-*"
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+          Resource: "arn:aws:s3:::*:${self:service}-*"
   environment:
-    tableName: dumptruck-${self:provider.stage}
+    tableName: ${self:service}-${self:provider.stage}
+    bucketName: ${self:service}-assets-${self:provider.stage}
 
 
 functions:
@@ -35,11 +40,17 @@ functions:
       - httpApi:
           path: /auth
           method: get
-  dumpList:
-    handler: src/funcs/dumps.list
+  getDumpList:
+    handler: src/funcs/dumps.getDumpList
     events:
       - httpApi:
           path: /dumps
+          method: get
+  getQuestion:
+    handler: src/funcs/dumps.getQuestion
+    events:
+      - httpApi:
+          path: /dumps/{dump_id}/{question_token}
           method: get
 
 resources:
@@ -62,7 +73,7 @@ resources:
     PublicBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: 'dumptruck-assets'
+        BucketName: ${self:provider.environment.bucketName}
     PublicBucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
@@ -74,7 +85,7 @@ resources:
               Action:
                 - 's3:GetObject'
               Resource:
-                - !Join ['/', [!GetAtt [PublicBucket, Arn], '*']]
+                - !Join ['/', [!GetAtt [PublicBucket, Arn], 'icons/*']]
               Principal: '*'
 
 

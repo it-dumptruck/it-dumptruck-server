@@ -18,6 +18,9 @@ JWT 토큰 발급 요청
 }
 ```
 
+#### status code : 400
+크롤링 의심 등으로 인해 토큰 발급에 실패한 경우.
+
 ## GET /dumps
 덤프 리스트 조회
 
@@ -69,8 +72,8 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
     “question": "문제",
     “answer": [“A", "C"],
     “list": [“보기A", “보기B", “보기C", “보기D"],
-    “next_id": "eaca2046207dc8f58b4941552d0932b86ff03d5e", //다음 문제의 question_token (없을경우 null)
-    “prev_id": "eaca2046207dc8f58b4941552d0932b86ff03d5e", //이전 문제의 question_token (없을경우 null)
+    “prev_id": "4", //이전 문제의 question_token (없을경우 null)
+    “next_id": "6", //다음 문제의 question_token (없을경우 null)
     “description": “해설(없을수도있음 없으면 null)",
     "marked": true, //마킹 여부
 }

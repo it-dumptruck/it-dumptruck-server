@@ -10,7 +10,7 @@ module.exports = async () => {
         TableName,
         Key: {
             id: '#dumps',
-            sid: '#dumps#list'
+            sid: '#dumps'
         }
     }).promise())?.Item?.value;
 
