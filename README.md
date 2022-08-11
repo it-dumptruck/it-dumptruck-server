@@ -13,7 +13,7 @@ JWT 토큰 발급 요청
 #### status code : 200
 ```
 {
-    "uid": "23jfviox3", //uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
+    "uid": "23jfviox3", //유효한 uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ" //발급된 JWT 토큰
 }
 ```
@@ -70,8 +70,10 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 {
     “id": 123,
     “question": "문제",
+    “question_en": "Question",
     “answer": [“A", "C"],
     “list": [“보기A", “보기B", “보기C", “보기D"],
+    “list_en": [“A", “B", “C", “D"],
     “prev_id": "4", //이전 문제의 question_token (없을경우 null)
     “next_id": "6", //다음 문제의 question_token (없을경우 null)
     “description": “해설(없을수도있음 없으면 null)",
