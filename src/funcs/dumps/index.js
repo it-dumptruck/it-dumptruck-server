@@ -2,5 +2,6 @@
 
 module.exports = {
     getDumpList: require('./getDumpList'),
-    getQuestion: require('./getQuestion')
+    getQuestion: require('./getQuestion'),
+    markQuestion: require('./markQuestion'),
 }

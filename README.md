@@ -114,7 +114,7 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 #### status code : 404
 존재하지 않는 덤프 아이디인 경우
 
-## POST /marks/{dump_id}/{question_token} (미완성)
+## POST /marks/{dump_id}/{question_token}
 마킹(별표처리)
 
 ### parameter

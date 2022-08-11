@@ -33,7 +33,7 @@
        "domainName":"f5ih972vs1.execute-api.ap-northeast-2.amazonaws.com",
        "domainPrefix":"f5ih972vs1",
        "http":{
-          "method":"GET",
+          "method":"post",
           "path":"/auth",
           "protocol":"HTTP/1.1",
           "sourceIp":"175.192.215.157",
@@ -47,7 +47,7 @@
     },
     "pathParameters":{
        "dump_id":"amazon-dva-c01",
-       "question_token":"51"
+       "question_token":"52"
     },
     "isBase64Encoded":false
  }
