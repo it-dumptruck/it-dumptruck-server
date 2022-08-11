@@ -10,7 +10,7 @@ module.exports = async (uid, dumpID, questionToken, isAddFn) => {
     if (isAddFn && idx < 0) markedList.push(questionToken)
     else if (!isAddFn && idx >= 0) markedList.splice(idx, 1)
 
-    updateMarkedQuestion(uid, dumpID, markedList)
+    await updateMarkedQuestion(uid, dumpID, markedList)
 
     return isAddFn;
 }

@@ -87,7 +87,7 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 존재하지 않는 덤프 아이디인 경우
 question_token이 잘못된 경우
 
-## GET /marks/{dump_id} (미완성)
+## GET /marks/{dump_id}
 마킹한 문제 리스트 조회
 
 ### parameter
