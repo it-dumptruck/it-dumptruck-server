@@ -1,6 +1,6 @@
 'use strict';
 
-const { DynamoDB } = require("aws-sdk")
+const { DynamoDB } = require('aws-sdk')
 
 const db = new DynamoDB.DocumentClient()
 const TableName = process.env.tableName
@@ -12,12 +12,12 @@ module.exports = async (uid, dumpID, list) => {
             id: '#users#' + uid,
             sid: '#dumps#' + dumpID
         },
-        UpdateExpression: "set #var = :v",
+        UpdateExpression: 'set #var = :v',
         ExpressionAttributeNames: {
-            "#var": "value"
+            '#var': 'value'
         },
         ExpressionAttributeValues: {
-            ":v": list
+            ':v': list
         }
     }).promise()
 }

@@ -2,9 +2,9 @@
 
 const jwt = require('jsonwebtoken');
 
-const res = require("../../utils/res")
-const config = require("../../models/configs")
-const createUID = require("../../services/auth/createUID")
+const res = require('../../utils/res')
+const config = require('../../models/configs')
+const createUID = require('../../services/auth/createUID')
 
 module.exports.index = async (event) => {
     let AESKey = await config('secret')

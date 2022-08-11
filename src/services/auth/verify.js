@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const config = require("../../models/configs")
+const config = require('../../models/configs')
 
 module.exports = async (header) => {
     let AESKey = await config('secret')

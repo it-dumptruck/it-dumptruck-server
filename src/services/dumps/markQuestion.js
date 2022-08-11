@@ -1,7 +1,7 @@
 'use strict';
 
-const getMarkedQuestion = require("../../models/users/getMarkedQuestion")
-const updateMarkedQuestion = require("../../models/users/updateMarkedQuestion")
+const getMarkedQuestion = require('../../models/users/getMarkedQuestion')
+const updateMarkedQuestion = require('../../models/users/updateMarkedQuestion')
 
 module.exports = async (uid, dumpID, questionToken, isAddFn) => {
     let markedList = await getMarkedQuestion(uid, dumpID)

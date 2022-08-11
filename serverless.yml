@@ -57,6 +57,12 @@ functions:
       - httpApi:
           path: /marks/{dump_id}/{question_token}
           method: post
+  markedQuestion:
+    handler: src/funcs/dumps.markedQuestion
+    events:
+      - httpApi:
+          path: /marks/{dump_id}
+          method: get
 
 resources:
   Resources:

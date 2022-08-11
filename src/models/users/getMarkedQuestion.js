@@ -1,6 +1,6 @@
 'use strict';
 
-const { DynamoDB } = require("aws-sdk")
+const { DynamoDB } = require('aws-sdk')
 
 const db = new DynamoDB.DocumentClient()
 const TableName = process.env.tableName

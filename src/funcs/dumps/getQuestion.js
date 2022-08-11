@@ -1,9 +1,9 @@
 'use strict';
 
-const res = require("../../utils/res")
-const dumpQuestion = require("../../models/dumps/dumpQuestion")
-const getMarkedQuestion = require("../../models/users/getMarkedQuestion")
-const verify = require("../../services/auth/verify")
+const res = require('../../utils/res')
+const dumpQuestion = require('../../models/dumps/dumpQuestion')
+const getMarkedQuestion = require('../../models/users/getMarkedQuestion')
+const verify = require('../../services/auth/verify')
 
 module.exports = async (event) => {
     let uid = await verify(event.headers);
