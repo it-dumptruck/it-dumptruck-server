@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
+    "serverless": "^3.21.0",
     "serverless-offline": "^9.2.0"
   }
 }
