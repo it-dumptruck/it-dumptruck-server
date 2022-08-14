@@ -98,3 +98,6 @@ resources:
               Resource:
                 - !Join ['/', [!GetAtt [PublicBucket, Arn], 'icons/*']]
               Principal: '*'
+
+plugins:
+ - serverless-offline

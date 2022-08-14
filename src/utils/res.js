@@ -2,8 +2,9 @@
 
 module.exports = (statusCode, body, additionalHeaders = null) => {
     const headers = {
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
         ...additionalHeaders
     };
 
