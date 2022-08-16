@@ -7,14 +7,8 @@
                 "apigateway:*"
             ],
             "Resource": [
-                "arn:aws:apigateway:ap-northeast-2::/apis",
-                "arn:aws:apigateway:ap-northeast-2::/apis/*"
-            ],
-            "Condition": {
-                "StringLike": {
-                    "aws:ResourceTag/aws:cloudformation:stack-name": "dumptruck-*"
-                }
-            }
+                "arn:aws:apigateway:ap-northeast-2::/tags/arn:aws:apigateway:ap-northeast-2::/apis/f5ih972vs1"
+            ]
         },
         {
             "Effect": "Allow",

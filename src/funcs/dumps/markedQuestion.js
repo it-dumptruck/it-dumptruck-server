@@ -5,7 +5,6 @@ const verify = require('../../services/auth/verify')
 const dumpAllQuestions = require('../../models/dumps/dumpAllQuestions')
 const getMarkedQuestion = require('../../models/users/getMarkedQuestion')
 
-
 module.exports = async (event) => {
     let uid = await verify(event.headers);
     if (!uid) return res(401);

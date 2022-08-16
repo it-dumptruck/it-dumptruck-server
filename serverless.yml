@@ -6,6 +6,18 @@ provider:
   runtime: nodejs16.x
   region: ap-northeast-2
   stage: ${opt:stage, 'dev'}
+  httpApi:
+    cors:
+      allowedOrigins:
+        - http://localhost:3000
+        - https://master.d290irqtmh4wx1.amplifyapp.com
+      allowedHeaders:
+        - token
+        - uid
+        - type
+      allowedMethods:
+        - GET
+        - POST
   iam:
     role:
       statements:
