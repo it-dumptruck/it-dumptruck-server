@@ -15,7 +15,7 @@ JWT 토큰 발급 요청
 {
     uid: "23jfviox3", //유효한 uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ", //발급된 JWT 토큰
-    lastAccess: {
+    lastAccessed: {
         dumpID: '9a6de53f1daf252e41c720bfbb73e4b47a4d0407',
         questionID: '11vmwwoxiv'
     }

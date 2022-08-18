@@ -30,6 +30,7 @@ module.exports = async (uid = null) => {
               ':id' : '#users#' + uid
             },
             KeyConditionExpression: 'id = :id',
+            Limit: 1,
         }).promise()).Count
 
         if (duplicateCheck === 0) break;

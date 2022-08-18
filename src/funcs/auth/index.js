@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const res = require('../../utils/res')
 const config = require('../../models/configs')
+const getLastAccessed = require('../../models/users/getLastAccessed')
 const createUID = require('../../services/auth/createUID')
 
 module.exports.index = async (event) => {
@@ -14,8 +15,13 @@ module.exports.index = async (event) => {
 
     if (!agent) return res(400);
 
+    let lastAccessed = await getLastAccessed(uid)
+    if (!lastAccessed) lastAccessed = null
+
+
     return res(200, {
         uid,
-        token
+        token,
+        lastAccessed
     });
 };

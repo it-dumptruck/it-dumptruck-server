@@ -3,6 +3,7 @@
 const res = require('../../utils/res')
 const dumpQuestion = require('../../models/dumps/dumpQuestion')
 const getMarkedQuestion = require('../../models/users/getMarkedQuestion')
+const updateLastAccessed = require('../../models/users/updateLastAccessed')
 const verify = require('../../services/auth/verify')
 
 module.exports = async (event) => {
@@ -43,6 +44,8 @@ module.exports = async (event) => {
         marked: markedList.indexOf(questionToken) >= 0,
         ...dumpData.question
     }
+
+    await updateLastAccessed(uid, dumpId, questionToken)
 
     return res(200, result);
 };
