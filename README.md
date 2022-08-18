@@ -13,8 +13,12 @@ JWT 토큰 발급 요청
 #### status code : 200
 ```
 {
-    "uid": "23jfviox3", //유효한 uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ" //발급된 JWT 토큰
+    uid: "23jfviox3", //유효한 uid 입력시 동일한 uid 반환. 미입력시 무작위로 생성된 uid 반환
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJ0ZXN0In0.pb9s5hMjqlksgj6gPASw1A5e4LpVNxBWHoQo2mKvgdQ", //발급된 JWT 토큰
+    lastAccess: {
+        dumpID: '9a6de53f1daf252e41c720bfbb73e4b47a4d0407',
+        questionID: '11vmwwoxiv'
+    }
 }
 ```
 
@@ -53,42 +57,8 @@ JWT 토큰 발급 요청
 #### status code : 401
 JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
 
-## GET /dumps/{dump_id}/{question_token}
-개별 문제 조회
-
-### parameter
-* dump_id : 덤프 아이디
-* question_token : 문제 번호 토큰. 미 입력시 첫 번째 문제 조회.
-
-### header
-* token : JWT 토큰
-* type : sequence(기본값) / random / marked
-
-### response
-#### status code : 200
-```
-{
-    “id": 123,
-    “question": "문제",
-    “question_en": "Question",
-    “answer": [“A", "C"],
-    “list": [“보기A", “보기B", “보기C", “보기D"],
-    “list_en": [“A", “B", “C", “D"],
-    “prev_id": "4", //이전 문제의 question_token (없을경우 null)
-    “next_id": "6", //다음 문제의 question_token (없을경우 null)
-    “description": “해설(없을수도있음 없으면 null)",
-    "marked": true, //마킹 여부
-}
-```
-#### status code : 401
-JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
-
-#### status code : 404
-존재하지 않는 덤프 아이디인 경우
-question_token이 잘못된 경우
-
-## GET /marks/{dump_id}
-마킹한 문제 리스트 조회
+## GET /dumps/{dump_id}
+문제 리스트 조회
 
 ### parameter
 * dump_id : 덤프 아이디
@@ -114,12 +84,77 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 #### status code : 404
 존재하지 않는 덤프 아이디인 경우
 
-## POST /marks/{dump_id}/{question_token}
+## GET /dumps/{dump_id}/{question_id}
+개별 문제 조회
+
+### parameter
+* dump_id : 덤프 아이디
+* question_id : 문제 아이디. 미 입력시 첫 번째 문제 조회.
+
+### header
+* token : JWT 토큰
+* type : sequence(기본값) / random / marked
+
+### response
+#### status code : 200
+```
+{
+    “id": 123,
+    “question": "문제",
+    “question_en": "Question",
+    “answer": [“A", "C"],
+    “list": [“보기A", “보기B", “보기C", “보기D"],
+    “list_en": [“A", “B", “C", “D"],
+    “prev_id": "4", //이전 문제의 question_id (없을경우 null)
+    “next_id": "6", //다음 문제의 question_id (없을경우 null)
+    “description": “해설(없을수도있음 없으면 null)",
+    "marked": true, //마킹 여부
+}
+```
+#### status code : 401
+JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
+
+#### status code : 404
+존재하지 않는 덤프 아이디인 경우
+question_id이 잘못된 경우
+
+## GET /marks/{dump_id}
+마킹한 문제 리스트 조회
+
+### parameter
+* dump_id : 덤프 아이디
+
+### header
+* token : JWT 토큰
+
+### response
+#### status code : 200
+```
+{
+    lists: [
+        {
+            “id": 1,
+            “question": "문제 (... 포함 최대 100자)",
+        },
+        {
+            “id": 2,
+            “question": "문제 (... 포함 최대 100자)",
+        }
+    ]
+}
+```
+#### status code : 401
+JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
+
+#### status code : 404
+존재하지 않는 덤프 아이디인 경우
+
+## POST /marks/{dump_id}/{question_id}
 마킹(별표처리)
 
 ### parameter
 * dump_id : 덤프 아이디
-* question_token : 문제 번호 토큰.
+* question_id : 문제 아이디.
 
 ### header
 * token : JWT 토큰
@@ -137,4 +172,4 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 
 #### status code : 404
 존재하지 않는 덤프 아이디인 경우
-question_token이 잘못된 경우
+question_id이 잘못된 경우

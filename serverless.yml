@@ -57,6 +57,12 @@ functions:
       - httpApi:
           path: /dumps
           method: get
+  getQuestionList:
+    handler: src/funcs/dumps.getQuestionList
+    events:
+      - httpApi:
+          path: /dumps/{dump_id}
+          method: get
   getQuestion:
     handler: src/funcs/dumps.getQuestion
     events:
@@ -69,7 +75,7 @@ functions:
       - httpApi:
           path: /marks/{dump_id}/{question_token}
           method: post
-  markedQuestion:
+  markedQuestionList:
     handler: src/funcs/dumps.markedQuestion
     events:
       - httpApi:
