@@ -20,8 +20,6 @@ module.exports = async (event) => {
     let markedQuestion = await getMarkedQuestion(uid, dumpID)
     markedQuestion.sort((a, b) => (a - b))
 
-    console.log(markedQuestion)
-
     let result = makeShortenList(dumpData, markedQuestion)
     result.lists = injectMarkedInfo(result.lists, markedQuestion)
 
