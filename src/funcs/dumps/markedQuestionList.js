@@ -1,6 +1,7 @@
 'use strict';
 
 const res = require('../../utils/res')
+const injectMarkedInfo = require('../../utils/injectMarkedInfo')
 const verify = require('../../services/auth/verify')
 const makeShortenList = require('../../services/dumps/makeShortenList')
 const dumpAllQuestions = require('../../models/dumps/dumpAllQuestions')
@@ -17,9 +18,12 @@ module.exports = async (event) => {
     if (!dumpData) return res(404);
 
     let markedQuestion = await getMarkedQuestion(uid, dumpID)
-    markedQuestion.sort()
+    markedQuestion.sort((a, b) => (a - b))
+
+    console.log(markedQuestion)
 
     let result = makeShortenList(dumpData, markedQuestion)
+    result.lists = injectMarkedInfo(result.lists, markedQuestion)
 
     result.dump = {
         dumpID: dumpInfo.dumpID,
