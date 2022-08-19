@@ -78,7 +78,8 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
     },
     lists: [
         {
-            id: 123,
+            id: 1, //문제 번호 (화면 표시용)
+            questionID: 'svj23oxie', //문제 요청시 사용하는 문제 토큰(문제 번호와 다를 수 있음)
             question: "문제 (... 포함 최대 100자)",
             marked: true
         }
@@ -106,16 +107,17 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 #### status code : 200
 ```
 {
-    “id": 123,
-    “question": "문제",
-    “question_en": "Question",
-    “answer": [“A", "C"],
-    “list": [“보기A", “보기B", “보기C", “보기D"],
-    “list_en": [“A", “B", “C", “D"],
-    “prev_id": "4", //이전 문제의 question_id (없을경우 null)
-    “next_id": "6", //다음 문제의 question_id (없을경우 null)
-    “description": “해설(없을수도있음 없으면 null)",
-    "marked": true, //마킹 여부
+    id: 123, //문제 번호 (화면 표시용)
+    questionID: 'asdfwef', //문제 요청시 사용하는 문제 토큰(문제 번호와 다를 수 있음)
+    question: "문제",
+    question_en: "Question",
+    answer: [“A", "C"],
+    list: [“보기A", “보기B", “보기C", “보기D"],
+    list_en: [“A", “B", “C", “D"],
+    prev_id: "4", //이전 문제의 question_id (없을경우 null)
+    next_id: "6", //다음 문제의 question_id (없을경우 null)
+    description: “해설(없을수도있음 없으면 null)",
+    marked: true, //마킹 여부
 }
 ```
 #### status code : 401
@@ -146,12 +148,14 @@ question_id이 잘못된 경우
     },
     lists: [
         {
-            id: 1,
+            id: 1, //문제 번호 (화면 표시용)
+            questionID: 'svj23oxie', //문제 요청시 사용하는 문제 토큰(문제 번호와 다를 수 있음)
             question: "문제 (... 포함 최대 100자)",,
             marked: true
         },
         {
-            id: 2,
+            id: 2, //문제 번호 (화면 표시용)
+            questionID: 'v2exvew3', //문제 요청시 사용하는 문제 토큰(문제 번호와 다를 수 있음)
             question: "문제 (... 포함 최대 100자)",,
             marked: true
         }

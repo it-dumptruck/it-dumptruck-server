@@ -39,6 +39,7 @@ module.exports = async (event) => {
 
     let result = {
         id: questionToken,
+        questionID: questionToken,
         prev_id,
         next_id,
         marked: markedList.indexOf(questionToken) >= 0,
