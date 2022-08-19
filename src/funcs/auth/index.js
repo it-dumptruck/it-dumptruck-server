@@ -15,9 +15,12 @@ module.exports.index = async (event) => {
 
     if (!agent) return res(400);
 
-    let lastAccessed = await getLastAccessed(uid)
-    if (!lastAccessed) lastAccessed = null
-
+    let lastAccessed
+    
+    if (event.headers?.uid) {
+        lastAccessed = await getLastAccessed(uid)
+        if (!lastAccessed) lastAccessed = null
+    }
 
     return res(200, {
         uid,
