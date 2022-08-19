@@ -70,6 +70,12 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 #### status code : 200
 ```
 {
+    dump: {
+        dumpID: '9a6de53f1daf252e41c720bfbb73e4b47a4d0407',
+        dumpName: 'Solution Architect Associate (C02)',
+        image: 'https://dumptruck-assets.s3.ap-northeast-2.amazonaws.com/icons/saa.png',
+        lastUpdated: 1628178571
+    },
     lists: [
         {
             “id": 123,
@@ -131,6 +137,12 @@ question_id이 잘못된 경우
 #### status code : 200
 ```
 {
+    dump: {
+        dumpID: '9a6de53f1daf252e41c720bfbb73e4b47a4d0407',
+        dumpName: 'Solution Architect Associate (C02)',
+        image: 'https://dumptruck-assets.s3.ap-northeast-2.amazonaws.com/icons/saa.png',
+        lastUpdated: 1628178571
+    },
     lists: [
         {
             “id": 1,

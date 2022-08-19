@@ -5,5 +5,5 @@ module.exports = {
     getQuestion: require('./getQuestion'),
     getQuestionList: require('./getQuestionList'),
     markQuestion: require('./markQuestion'),
-    markedQuestion: require('./markedQuestion'),
+    markedQuestionList: require('./markedQuestionList'),
 }

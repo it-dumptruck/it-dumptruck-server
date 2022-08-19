@@ -1,7 +1,7 @@
 'use strict';
 
 const { S3 } = require('aws-sdk')
-const dumpInfo = require('../../models/dumps/dumpInfo')
+const dumpInfo = require('./getDumpInfo')
 const Bucket = process.env.bucketName
 
 module.exports = async (dumpID) => {    
