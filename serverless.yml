@@ -6,11 +6,15 @@ provider:
   runtime: nodejs16.x
   region: ap-northeast-2
   stage: ${opt:stage, 'dev'}
+  stackName: ${self:service}-${self:provider.stage}
   httpApi:
     cors:
       allowedOrigins:
         - http://localhost:3000
-        - https://master.d290irqtmh4wx1.amplifyapp.com
+        - http://192.168.1.164:3000
+        - https://dumps.kr
+        - https://www.dumps.kr
+        - https://dev.dumps.kr
       allowedHeaders:
         - token
         - uid
@@ -18,6 +22,7 @@ provider:
       allowedMethods:
         - GET
         - POST
+      allowCredentials: true
   iam:
     role:
       statements:
@@ -36,7 +41,7 @@ provider:
           Resource: "arn:aws:s3:::${self:service}-*/*"
   environment:
     tableName: ${self:service}-${self:provider.stage}
-    bucketName: ${self:service}-assets-${self:provider.stage}
+    bucketName: ${self:service}-${self:provider.stage}-assets
 
 functions:
   index:
@@ -118,4 +123,15 @@ resources:
               Principal: '*'
 
 plugins:
- - serverless-offline
+  - serverless-offline
+#   - serverless-domain-manager
+  
+# custom:
+#   customDomain:
+#     domainName: api.dumps.kr
+    # route53Region: ap-northeast-2
+    # stage: ${self:provider.stage}
+    # #certificateName: '*.dumps.kr'
+    # createRoute53Record: false
+    # #certificateArn: 'arn:aws:acm:us-east-1:914344256918:certificate/f5acc802-a54e-4df3-90c2-97b3c5be771f'
+    # endpointType: REGIONAL

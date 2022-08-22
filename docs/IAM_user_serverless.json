@@ -7,7 +7,8 @@
                 "apigateway:*"
             ],
             "Resource": [
-                "arn:aws:apigateway:ap-northeast-2::/tags/arn:aws:apigateway:ap-northeast-2::/apis/f5ih972vs1"
+                "arn:aws:apigateway:ap-northeast-2::/apis/f5ih972vs1",
+                "arn:aws:apigateway:ap-northeast-2::/domainnames/api.dumps.kr"
             ]
         },
         {
@@ -20,6 +21,7 @@
                 "cloudformation:DeleteStack",
                 "cloudformation:Describe*",
                 "cloudformation:UpdateStack",
+                "cloudformation:DescribeStacks",
                 "cloudformation:DescribeChangeSet",
                 "cloudformation:DeleteChangeSet",
                 "cloudformation:CreateChangeSet",

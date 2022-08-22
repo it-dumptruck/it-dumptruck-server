@@ -16,6 +16,8 @@ module.exports = async (dumpID) => {
             Key: 'dumps/' + dumpFileName.data
         }).promise()
 
+        console.log(dumpData)
+
         dumpData = JSON.parse(dumpData.Body.toString('utf-8'))
     } catch (e) {
         return null

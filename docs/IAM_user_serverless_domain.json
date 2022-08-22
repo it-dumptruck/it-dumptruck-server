@@ -1,0 +1,45 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "acm:DescribeCertificate"
+            ],
+            "Resource": "arn:aws:acm:us-east-1:914344256918:certificate/f5acc802-a54e-4df3-90c2-97b3c5be771f"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "apigateway:POST"
+            ],
+            "Resource": "arn:aws:apigateway:ap-northeast-2::/domainnames"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudfront:UpdateDistribution",
+                "acm:ListCertificates",
+                "cloudformation:DescribeStacks"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "route53:ListHostedZones",
+                "route53:ChangeResourceRecordSets",
+                "route53:GetHostedZone",
+                "route53:ListResourceRecordSets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "arn:aws:iam::914344256918:role/aws-service-role/ops.apigateway.amazonaws.com/AWSServiceRoleForAPIGateway"
+        }
+    ]
+}

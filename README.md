@@ -46,8 +46,7 @@ JWT 토큰 발급 요청
                     dumpID: '9a6de53f1daf252e41c720bfbb73e4b47a4d0407',
                     dumpName: 'Solution Architect Associate (C02)',
                     image: 'https://dumptruck-assets.s3.ap-northeast-2.amazonaws.com/icons/saa.png',
-                    lastUpdated: 1628178571,
-                    totalQuestion: 691 //전체 문제 수
+                    lastUpdated: 1628178571
                 }
             ]
         }
