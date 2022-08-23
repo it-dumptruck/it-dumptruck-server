@@ -14,7 +14,7 @@ module.exports = (dumpData, idx) => {
     idx.forEach(e => {
         let question = dumpData[e - 1].question
 
-        if (question.length >= 96) question = question.substr(0, 96) + '...'
+        if (question.length >= 88) question = question.substr(0, 88) + '...'
 
         result.lists.push({
             id: e,
