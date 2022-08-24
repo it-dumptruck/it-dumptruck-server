@@ -11,13 +11,13 @@ provider:
     cors:
       allowedOrigins:
         - http://localhost:3000
-        - http://192.168.1.164:3000
         - https://dumps.kr
         - https://www.dumps.kr
         - https://dev.dumps.kr
       allowedHeaders:
         - token
         - uid
+        - method
         - type
       allowedMethods:
         - GET
@@ -124,6 +124,12 @@ resources:
 
 plugins:
   - serverless-offline
+  - serverless-tag-api-gateway
+
+custom:
+  apiGatewayTags:
+    stackName: dumptruck
+
 #   - serverless-domain-manager
   
 # custom:

@@ -7,8 +7,7 @@
                 "apigateway:*"
             ],
             "Resource": [
-                "arn:aws:apigateway:ap-northeast-2::/apis/f5ih972vs1",
-                "arn:aws:apigateway:ap-northeast-2::/domainnames/api.dumps.kr"
+                "arn:aws:apigateway:ap-northeast-2::/tags/dumptruck"
             ]
         },
         {

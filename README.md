@@ -176,7 +176,7 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 
 ### header
 * token : JWT 토큰
-* type : POST (등록) / DELETE (삭제)
+* method : POST (등록) / DELETE (삭제)
 
 ### response
 #### status code : 200

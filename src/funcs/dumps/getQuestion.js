@@ -3,6 +3,7 @@
 const res = require('../../utils/res')
 const dumpQuestion = require('../../models/dumps/dumpQuestion')
 const getMarkedQuestion = require('../../models/users/getMarkedQuestion')
+const getLastAccessed = require('../../models/users/getLastAccessed')
 const updateLastAccessed = require('../../models/users/updateLastAccessed')
 const verify = require('../../services/auth/verify')
 
@@ -24,7 +25,9 @@ module.exports = async (event) => {
     let markedList = await getMarkedQuestion(uid, dumpId)
 
     if (type === 'random') {
-        prev_id = null
+        let lastAccessed = await getLastAccessed(uid)
+
+        prev_id = (lastAccessed?.dumpID == dumpId) ? lastAccessed?.questionID : null
         next_id = Math.floor(Math.random() * dumpData.totalCount) + 1
     } else if (type === 'marked') {
         markedList.sort();

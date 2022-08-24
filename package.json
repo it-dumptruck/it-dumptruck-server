@@ -30,6 +30,7 @@
     "serverless": "^3.21.0",
     "serverless-domain-manager": "^6.1.0",
     "serverless-offline": "^9.2.0",
-    "serverless-plugin-scripts": "^1.0.2"
+    "serverless-plugin-scripts": "^1.0.2",
+    "serverless-tag-api-gateway": "^1.0.0"
   }
 }

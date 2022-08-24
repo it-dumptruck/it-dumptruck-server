@@ -15,9 +15,11 @@ module.exports = async (event) => {
     let dumpData = await dumpQuestion(dumpId, questionToken)
     if (!dumpData) return res(404);
 
-    let isAddFn = !(event.headers?.type?.toString().toLowerCase() === 'delete')
+    let isAddFn = !(event.headers?.method?.toString().toLowerCase() === 'delete')
 
     let result = await markQuestion(uid, dumpId, questionToken, isAddFn)
 
-    return res(200, result);
+    return res(200, {
+        marked: result
+    });
 };
