@@ -19,6 +19,7 @@ provider:
         - uid
         - method
         - type
+        - test
       allowedMethods:
         - GET
         - POST
@@ -73,6 +74,12 @@ functions:
     events:
       - httpApi:
           path: /dumps/{dump_id}/{question_token}
+          method: get
+  getManyQuestions:
+    handler: src/funcs/dumps.getManyQuestions
+    events:
+      - httpApi:
+          path: /dumps/{dump_id}/{question_token}/{amount}
           method: get
   markQuestion:
     handler: src/funcs/dumps.markQuestion

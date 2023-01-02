@@ -126,6 +126,47 @@ JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요�
 존재하지 않는 덤프 아이디인 경우
 question_id이 잘못된 경우
 
+## GET /dumps/{dump_id}/{question_id}/{amount}
+개별 문제 여러개 조회
+
+### parameter
+* dump_id : 덤프 아이디
+* question_id : 문제 아이디. 미 입력시 첫 번째 문제 조회.
+* amount : 요청할 최대 문제 수 (※ 상황에 따라 요청한 문제 수와 응답 문제 수가 다를 수 있습니다.)
+
+### header
+* token : JWT 토큰
+* type : sequence(기본값) / random / marked
+
+### response
+#### status code : 200
+```
+{
+    prev_id: "4", //이전 문제의 question_id (없을경우 null)
+    next_id: "6", //다음 문제의 question_id (없을경우 null)
+    questions: [
+        {
+            id: 123, //문제 번호 (화면 표시용)
+            questionID: 'asdfwef', //문제 요청시 사용하는 문제 토큰(문제 번호와 다를 수 있음)
+            question: "문제",
+            question_en: "Question",
+            answer: [“A", "C"],
+            list: [“보기A", “보기B", “보기C", “보기D"],
+            list_en: [“A", “B", “C", “D"],
+            description: “해설(없을수도있음 없으면 null)",
+            marked: true, //마킹 여부
+        },
+        ...
+    ]
+}
+```
+#### status code : 401
+JWT 토큰이 잘못되었거나 만료된 경우 (토큰 재발급 후 재요청 필요)
+
+#### status code : 404
+존재하지 않는 덤프 아이디인 경우
+question_id이 잘못된 경우
+
 ## GET /marks/{dump_id}
 마킹한 문제 리스트 조회
 
