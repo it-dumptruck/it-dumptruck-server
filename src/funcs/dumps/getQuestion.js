@@ -30,7 +30,7 @@ module.exports = async (event) => {
         prev_id = (lastAccessed?.dumpID == dumpId) ? lastAccessed?.questionID : null
         next_id = Math.floor(Math.random() * dumpData.totalCount) + 1
     } else if (type === 'marked') {
-        markedList.sort();
+        markedList.sort((a, b) => a - b);
         let idx = markedList.indexOf(questionToken)
 
         if (idx + 1 < markedList.length) next_id = markedList[idx + 1]
